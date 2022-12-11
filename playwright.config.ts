@@ -1,5 +1,15 @@
 import test, { PlaywrightTestConfig } from '@playwright/test'
 
+/**
+ * テスト実行時に、このファイルをconfigとして読み取ることをコマンドで指定すると、
+ * このconfigで実行される。
+ *
+ * そのため、playwright.config.tsというファイル名ではなく、別のファイルに別の設定を書き出すこともできる。
+ * その場合は、テスト実行時にそのファイルをconfigとして読み取るコマンドを指定すればいい。
+ *
+ *  ex:    npx playwright:test -c playwright.config.ts
+ */
+
 const config: PlaywrightTestConfig = {
   // テストに対するタイムアウト。一つのテストが60秒以内に終わらなければならない。
   timeout: 60000,
@@ -29,14 +39,14 @@ const config: PlaywrightTestConfig = {
     },
     {
       name: 'Firefox',
-      use: { browserName: 'firefox'},
+      use: { browserName: 'firefox' },
       testDir: './tests/',
     },
     {
       name: 'Webkit',
-      use: {browserName: 'webkit'},
-      testDir: './tests/'
-    }
+      use: { browserName: 'webkit' },
+      testDir: './tests/',
+    },
   ],
 
   expect: {

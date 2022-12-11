@@ -19,3 +19,15 @@ npx playwright test --browser=all
     ```
     npx playwrigth test --grep-invert @tagName
     ```
+
+-  configファイルの指定と読み込み
+
+    - playwright.config.tsの設定を読み込む場合
+    ```
+    npx playwright test -c playwright.config.ts   
+    ```
+    
+    - XXXX.config.tsの設定を読み込む場合
+    ```
+    npx playwright test -c XXXX.config.ts   
+    ```
