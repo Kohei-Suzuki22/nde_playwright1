@@ -31,3 +31,16 @@ npx playwright test --browser=all
     ```
     npx playwright test -c XXXX.config.ts   
     ```
+
+- プロジェクトの指定(configファイルに記載したプロジェクト)
+
+```
+npx playwright test --project=ProjectName
+```
+
+
+- reportの出力
+```
+npx playwright test --reporter=(html|junit|json|dot|line)
+```
+

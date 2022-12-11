@@ -24,11 +24,16 @@ const config: PlaywrightTestConfig = {
     headless: true,
     viewport: { width: 1280, height: 720 },
     // 操作に対するタイムアウト。
-    actionTimeout: 15000,
+    actionTimeout: 30000,
     ignoreHTTPSErrors: true,
-    video: 'retain-on-failure',
+    // video: 'retain-on-failure',
     screenshot: 'off',
   },
+  // reporterはuseの外に設定するので注意。
+  // reporter: [['json', { outputFile: 'test-results.json' }]],
+  // reporter: [['junit', {outputFolder: 'test-report'}]],
+  reporter: [['html', { outputFolder: './test-report', open: 'never' }]],
+
   // projects: プロジェクトごとに設定を保存できる。defaultはconfigの一番上の階層の設定.
   projects: [
     {
