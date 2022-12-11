@@ -16,7 +16,7 @@ test('クリック', async ({ page }) => {
   )
 })
 
-// .onlyを使うと、これだけを実行することになる。
+// .onlyを使うと、これだけを実行することになる。(※　このファイルの中でonlyは有効なため、他のファイルも一緒に実行するときは、他のファイルはonlyの効果を受けない。)
 test.only('入力', async ({ page }) => {
   await page.goto('http://zero.webappsecurity.com/index.html')
   await page.click('#signin_button')
