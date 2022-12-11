@@ -5,7 +5,8 @@ const config: PlaywrightTestConfig = {
   timeout: 60000,
   // retries: テストが失敗した際にリトライする回数
   retries: 0,
-  // workerでは、各ファイルごとに並列実行(ファイル内にある複数テストは、並列ではない)
+  // workerでは、各ファイルごとに並列実行(ファイル内にある複数テストは、並列ではない)だが、
+  // fullyParallel は、各ファイルのその中の全てのテストを並列実行する。
   fullyParallel: true,
 
   //use: ブラウザに対するオプション
