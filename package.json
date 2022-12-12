@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "playwright:test": "npx playwright test"
+    "playwright:test": "npx playwright test",
+    "test:chrome": "npx playwright test -c playwright.config.ts --project=Chromium",
+    "test:firefox": "npx playwright test -c playwright.config.ts --project=Firefox",
+    "test:webkit": "npx playwright test -c playwright.config.ts --project=Webkit"
   },
   "dependencies": {
     "@playwright/test": "^1.28.1",
