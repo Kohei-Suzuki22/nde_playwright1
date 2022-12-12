@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { loadHomepage, assertTitle } from '../common_modules/helpers'
 
 test('ベーシック', async ({ page }) => {
   await page.goto('https://www.example.com')
@@ -81,4 +82,11 @@ test.describe('describeを使ってテストをまとめることができる', 
     const nonexsistElement = page.locator('h5')
     await expect(nonexsistElement).not.toBeVisible()
   })
+})
+
+test.only('共通モジュールとして別ファイルを読み込む', async ({ page }) => {
+  await loadHomepage(page)
+  // vscodeのデバッグ実行を使えばdebuggerで止められる。
+  debugger;
+  await assertTitle(page)
 })
