@@ -1,5 +1,12 @@
 import test, { PlaywrightTestConfig } from '@playwright/test'
 
+
+/**
+ * configファイルは一番上の階層でなければ読み込まれない？？？
+ */
+
+
+
 /**
  * テスト実行時に、このファイルをconfigとして読み取ることをコマンドで指定すると、
  * このconfigで実行される。
@@ -19,6 +26,7 @@ const config: PlaywrightTestConfig = {
   // fullyParallel は、各ファイルのその中の全てのテストを並列実行する。
   fullyParallel: true,
   testMatch: /.spec.ts/,
+  testDir: './testsE2E/',
 
   //use: ブラウザに対するオプション
   use: {
@@ -42,16 +50,17 @@ const config: PlaywrightTestConfig = {
       name: 'Chromium',
       use: { browserName: 'chromium' },
       // テストを実行するディレクトリを指定できる。
+      testDir: './testsE2E/',
     },
     {
       name: 'Firefox',
       use: { browserName: 'firefox' },
-      testDir: './testsExample/',
+      testDir: './testsE2E/',
     },
     {
       name: 'Webkit',
       use: { browserName: 'webkit' },
-      testDir: './testsExample/',
+      testDir: './testsE2E/',
     },
   ],
 

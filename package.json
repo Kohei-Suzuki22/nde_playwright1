@@ -5,9 +5,10 @@
   "license": "MIT",
   "scripts": {
     "playwright:test": "npx playwright test",
-    "test:chrome": "npx playwright test -c playwright.config.ts --project=Chromium",
+    "test:chromium": "npx playwright test -c playwright.config.ts --project=Chromium",
     "test:firefox": "npx playwright test -c playwright.config.ts --project=Firefox",
-    "test:webkit": "npx playwright test -c playwright.config.ts --project=Webkit"
+    "test:webkit": "npx playwright test -c playwright.config.ts --project=Webkit",
+    "test:e2e": "npx playwright test testsE2E/ -c e2e.config.ts --project=Chromium"
   },
   "dependencies": {
     "@playwright/test": "^1.28.1",
