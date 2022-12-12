@@ -50,7 +50,8 @@ test.only('アサーション', async ({ page }) => {
 })
 
 // describeの前にonly,skipなどは使えない。
-test.describe('describeを使ってテストをまとめることができる', () => {
+// parallelは、configで定義する他に、describeに付けることもできる。
+test.describe.parallel('describeを使ってテストをまとめることができる', () => {
   // .onlyを使うと、これだけを実行することになる。
   test.only('入力', async ({ page }) => {
     await page.goto('http://zero.webappsecurity.com/index.html')
@@ -69,6 +70,11 @@ test.describe('describeを使ってテストをまとめることができる', 
   // .onlyを複数つけると、onlyをつけたものだけ実行するようになる。
   test.only('アサーション', async ({ page }) => {
     await page.goto('https://example.com')
+
+    // page.pause(): このタイミングで、playwright inspectorが開かれる。debugで便利。
+    await page.pause()
+    
+    
     await expect(page).toHaveURL('https://example.com')
     await expect(page).toHaveTitle('Example Domain')
 
@@ -78,6 +84,7 @@ test.describe('describeを使ってテストをまとめることができる', 
     await expect(exsistElement).toHaveText('Example Domain')
     //locatorが存在する数を検証。 選択肢がある場合などは使えるかも。
     await expect(exsistElement).toHaveCount(1)
+    await page.pause()
 
     const nonexsistElement = page.locator('h5')
     await expect(nonexsistElement).not.toBeVisible()
