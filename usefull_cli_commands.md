@@ -1,6 +1,8 @@
 #　便利なCLIコマンドオプション
 
 
+## テスト実行
+
 - ブラウザ指定
 
 ```
@@ -44,3 +46,11 @@ npx playwright test --project=ProjectName
 npx playwright test --reporter=(html|junit|json|dot|line)
 ```
 
+## テスト全容の確認
+
+```
+npx playwright test --list  # テスト実行対象のリスト一覧を確認できる。
+```
+```
+npx playwright test --list --reporter=json  ＃＃テスト実行対象一覧とその設定を確認できる。
+```
