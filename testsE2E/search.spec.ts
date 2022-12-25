@@ -1,12 +1,13 @@
 import {test, expect} from '@playwright/test'
+import { HomePage } from '../page-objects/HomePage'
 
 
 test.describe('検索結果', () => {
   
   test('検索結果が見つかる', async ({page}) =>{
-    await page.goto('http://zero.webappsecurity.com/index.html')
-    await page.type('#searchTerm','bank')
-    await page.keyboard.press('Enter')
+    let homePage: HomePage = new HomePage(page)
+    await homePage.visit()
+    await homePage.searchFor('bank')
 
     /**
      *   selector の　「>」 と　「>>」の違い
