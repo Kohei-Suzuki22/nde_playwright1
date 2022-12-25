@@ -1,13 +1,13 @@
 import { expect, Locator, Page } from '@playwright/test'
+import { AbstractPage } from './abstractPage'
 
-export class HomePage {
-  readonly page: Page
+export class HomePage extends AbstractPage{
   readonly signInButton: Locator
   readonly searchBox: Locator
   readonly linkFeedback: Locator
 
   constructor(page: Page) {
-    this.page = page
+    super(page)
     this.signInButton = page.locator('#signin_button')
     this.searchBox = page.locator('#searchTerm')
     this.linkFeedback = page.locator('#feedback')
