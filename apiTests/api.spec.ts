@@ -39,6 +39,49 @@ test.describe.parallel('API Testing', () => {
     expect(responseBody.data.last_name).toBe('Bluth')
     // toBeTruthy()は、 [false, 0, '', null, undefined, NaN] のいずれかでなければtrueとなる。
     expect(responseBody.data.email).toBeTruthy()
+  })
 
+  test('Post Request - Create New User', async ({ request }) => {
+    const response = await request.post(`${baseUrl}/user`, {
+      data: {
+        id: 100,
+      },
+    })
+
+    const responseBody = await response.json()
+
+    // post時のレスポンスボディは、dataに入っているわけではないので、　responseBody.data.id ではなく、responseBody.idでアクセスできる。
+
+    expect(responseBody.id).toBe(100)
+    expect(responseBody.createdAt).toBeTruthy()
+  })
+
+  test('Post Request - Login', async ({ request }) => {
+    const response = await request.post(`${baseUrl}/login`, {
+      data: {
+        email: 'eve.holt@reqres.in',
+        password: 'cityslicka',
+      },
+    })
+
+    const responseBody = await response.json()
+
+    expect(response.status()).toBe(200)
+    expect(responseBody.token).toBeTruthy()
+  })
+
+
+  test('Post Request - Login Fail', async ({ request }) => {
+    const response = await request.post(`${baseUrl}/login`, {
+      data: {
+        email: 'eve.holt@reqres.in',
+      },
+    })
+
+    const responseBody = await response.json()
+
+    expect(response.status()).toBe(400)
+    expect(response.statusText()).toBe('Bad Request')
+    expect(responseBody.error).toBe('Missing password')
   })
 })
