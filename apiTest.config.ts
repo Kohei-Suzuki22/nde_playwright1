@@ -1,11 +1,8 @@
 import test, { PlaywrightTestConfig } from '@playwright/test'
 
-
 /**
  * configファイルは一番上の階層でなければ読み込まれない？？？
  */
-
-
 
 /**
  * テスト実行時に、このファイルをconfigとして読み取ることをコマンドで指定すると、
@@ -26,7 +23,7 @@ const config: PlaywrightTestConfig = {
   // fullyParallel は、各ファイルのその中の全てのテストを並列実行する。
   fullyParallel: true,
   testMatch: /.spec.ts/,
-  testDir: './testsE2E/',
+  testDir: './apiTests/',
 
   //use: ブラウザに対するオプション
   use: {
@@ -42,7 +39,7 @@ const config: PlaywrightTestConfig = {
   // reporter: [['json', { outputFile: 'test-results.json' }]],
   // reporter: [['junit', {outputFolder: 'test-report'}]],
 
-  reporter: [['html', { outputFolder: './test-report/e2eTests/', open: 'never' }]],
+  reporter: [['html', { outputFolder: './test-report/apiTests', open: 'never' }]],
 
   // projects: プロジェクトごとに設定を保存できる。defaultはconfigの一番上の階層の設定.
   projects: [
@@ -50,17 +47,17 @@ const config: PlaywrightTestConfig = {
       name: 'Chromium',
       use: { browserName: 'chromium' },
       // テストを実行するディレクトリを指定できる。
-      testDir: './testsE2E/',
+      testDir: './apiTests/',
     },
     {
       name: 'Firefox',
       use: { browserName: 'firefox' },
-      testDir: './testsE2E/',
+      testDir: './apiTests/',
     },
     {
       name: 'Webkit',
       use: { browserName: 'webkit' },
-      testDir: './testsE2E/',
+      testDir: './apiTests/',
     },
   ],
 
