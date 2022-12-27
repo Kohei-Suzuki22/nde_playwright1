@@ -70,7 +70,6 @@ test.describe.parallel('API Testing', () => {
     expect(responseBody.token).toBeTruthy()
   })
 
-
   test('Post Request - Login Fail', async ({ request }) => {
     const response = await request.post(`${baseUrl}/login`, {
       data: {
@@ -83,5 +82,20 @@ test.describe.parallel('API Testing', () => {
     expect(response.status()).toBe(400)
     expect(response.statusText()).toBe('Bad Request')
     expect(responseBody.error).toBe('Missing password')
+  })
+
+  test('Put Request - Update User', async ({ request }) => {
+    const response = await request.put(`${baseUrl}/user/2`, {
+      data: {
+        name: 'new name',
+        job: 'new job',
+      },
+    })
+
+    const responseBody = await response.json()
+    expect(response.status()).toBe(200)
+    expect(responseBody.name).toBe('new name')
+    expect(responseBody.job).toBe('new job')
+    expect(responseBody.updatedAt).toBeTruthy()
   })
 })
