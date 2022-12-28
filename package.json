@@ -11,7 +11,8 @@
     "e2e:test": "npx playwright test testsE2E/ -c e2eTest.config.ts --project=Chromium",
     "test:visual": "npx playwright test visualTests/ -c visualTest.config.ts --project=Chromium",
     "test:visual:update": "npx playwright test visualTests/ -c visualTest.config.ts --project=Chromium --update-snapshots",
-    "api:test": "npx playwright test --config=apiTest.config.ts --project=Chromium"
+    "api:test": "npx playwright test --config=apiTest.config.ts --project=Chromium",
+    "jenkins:serve": "java -jar jenkins.war --httpPort=8080 --enable-future-java"
   },
   "dependencies": {
     "@playwright/test": "^1.28.1",
