@@ -55,6 +55,13 @@ npx playwright test --reporter=(html|junit|json|dot|line)
 npx playwright test --update-snapshots　
 ```
 
+- 失敗した時だけ、リトライする。成功時は一回で終わる。
+```
+npx playwright test retry.spec.ts --retries=3
+```
+
+
+
 ## テスト全容の確認
 
 ```
@@ -64,3 +71,4 @@ npx playwright test --list  # テスト実行対象のリスト一覧を確認�
 ```
 npx playwright test --list --reporter=json  ＃＃テスト実行対象一覧とその設定を確認できる。
 ```
+
