@@ -1,11 +1,10 @@
-import { test, Browser, expect } from '@playwright/test'
-import Context from '@playwright/test'
+import { test } from '@playwright/test'
 
 test.describe('マルチブラウザ', () => {
   let context
   /**
    * parallel実行の時は、かくworkerにおいて、beforeAllが呼ばれるらしい。
-   * 
+   *
    * なので、contextをbeforeAllで作ることによって、テストの高速化はできることがわかった。
    * つまり、4つのテストで、worker2つを例とすると、beforeAllは二回呼ばれ、2つのテストずつが別々のコンテキストを使うことになっていた。
    */
@@ -15,7 +14,7 @@ test.describe('マルチブラウザ', () => {
     context = await browser.newContext()
   })
 
-  test('マルチブラウザタブを一つのページで使用', async ({ browser }) => {
+  test('マルチブラウザタブを一つのページで使用', async () => {
     test.slow()
     // 共通で使うcontext内のタブを複数生成。
 
@@ -34,7 +33,7 @@ test.describe('マルチブラウザ', () => {
     await page3.goto('https://www.example.com')
   })
 
-  test('マルチブラウザタブを一つのページで使用2', async ({ browser }) => {
+  test('マルチブラウザタブを一つのページで使用2', async () => {
     test.slow()
 
     // 共通で使うcontext内のタブを複数生成。
@@ -50,7 +49,7 @@ test.describe('マルチブラウザ', () => {
     await page6.goto('https://www.example.com')
   })
 
-  test('マルチブラウザタブを一つのページで使用3', async ({ browser }) => {
+  test('マルチブラウザタブを一つのページで使用3', async () => {
     test.slow()
 
     // 共通で使うcontext内のタブを複数生成。
@@ -66,7 +65,7 @@ test.describe('マルチブラウザ', () => {
     await page9.goto('https://www.example.com')
   })
 
-  test('マルチブラウザタブを一つのページで使用4', async ({ browser }) => {
+  test('マルチブラウザタブを一つのページで使用4', async () => {
     test.slow()
 
     // 共通で使うcontext内のタブを複数生成。
