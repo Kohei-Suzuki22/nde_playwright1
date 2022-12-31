@@ -85,6 +85,24 @@ npx playwright screenshot twitter.com screenshots/twitter-image.png
  npx playwright open twitter.com  --color-scheme=dark
 ```
 
+- タイムゾーンの指定
+
+```
+npx playwright open --timezone="Europe/Rome" google.com
+```
+
+- 表示言語の指定
+
+```
+npx playwright open --lang='it-IT' google.com
+```
+
+- geolocation(位置情報)の指定
+
+```
+npx playwright open --geolocation='40.121, 10.123' google.com
+```
+
 ## テスト全容の確認
 
 ```
