@@ -60,6 +60,11 @@ npx playwright test --update-snapshots　
 npx playwright test retry.spec.ts --retries=3
 ```
 
+- スマホ版ブラウザで画面を開く
+```
+npx playwright open https://www.wikipedia.org --device='iPhone SE'
+```
+
 
 
 ## テスト全容の確認
