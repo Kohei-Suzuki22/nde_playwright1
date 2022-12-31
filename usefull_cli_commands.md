@@ -73,6 +73,18 @@ npx playwright open https://www.wikipedia.org --device='iPhone SE'
  npx playwright pdf https://www.example.com export_pdf/example.com.pdf
 ```
 
+- スクリーンショットの取得
+
+```
+npx playwright screenshot twitter.com screenshots/twitter-image.png
+```
+
+- ブラウザ上のカラースキーマを指定(例: ダークモード)
+
+```
+ npx playwright open twitter.com  --color-scheme=dark
+```
+
 ## テスト全容の確認
 
 ```
