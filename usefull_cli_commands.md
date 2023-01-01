@@ -103,6 +103,19 @@ npx playwright open --lang='it-IT' google.com
 npx playwright open --geolocation='40.121, 10.123' google.com
 ```
 
+- [テストを複数マシンで分割する方法](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines)
+
+```
+# shardを分割することによって、指定した割合ずつテストを実行できる。
+# これを実行した際に出されるレポートは別々に出され、一つに統合されていないことに注意。
+
+
+
+npx playwright test --shard=1/3
+npx playwright test --shard=2/3
+npx playwright test --shard=3/3
+```
+
 ## テスト全容の確認
 
 ```
