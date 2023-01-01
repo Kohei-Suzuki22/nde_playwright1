@@ -45,6 +45,7 @@ export default class MyReporter implements Reporter {
     console.log('test', test)
     console.log('result', result)
     console.log('dataToString', dataToString)
+    fs.writeFileSync('custom-report/test-result.json', dataToString)
   }
 
   // すべてのテストが終わった後に一度だけ実行される。

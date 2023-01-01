@@ -116,6 +116,12 @@ npx playwright test --shard=2/3
 npx playwright test --shard=3/3
 ```
 
+- テストレポートをカスタマイズする
+```
+# --reporter= XXX の　XXXにカスタマイズ設定の書かれたファイルを指定する。
+npx playwright test test-for-custom-report/sample.spec.ts --reporter=reporter.ts 
+```
+
 ## テスト全容の確認
 
 ```
