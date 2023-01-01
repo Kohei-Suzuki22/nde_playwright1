@@ -15,15 +15,16 @@
     "jenkins:serve": "java -jar jenkins.war --httpPort=8080 --enable-future-java",
     "merge:report": "ts-node ./merge-reports.spec.ts",
     "show-merged-report": "playwright show-report test-merge-report"
-    
   },
   "dependencies": {
+    "@cucumber/cucumber": "^8.10.0",
     "@playwright/test": "^1.28.1",
+    "chai": "^4.3.7",
+    "cucumber-html-reporter": "^5.5.0",
     "module-alias": "^2.2.2",
     "prettier": "^2.8.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.5.5"
-
   },
   "devDependencies": {
     "playwright-merge-html-reports": "^0.2.6"
