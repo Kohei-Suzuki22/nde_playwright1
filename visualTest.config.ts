@@ -35,7 +35,7 @@ const config: PlaywrightTestConfig = {
   // reporter: [['json', { outputFile: 'test-results.json' }]],
   // reporter: [['junit', {outputFolder: 'test-report'}]],
 
-  reporter: [['html', { outputFolder: './test-report/visualTest/', open: 'never' }]],
+  reporter: [['html', { outputFolder: './test-report/visualTests/', open: 'never' }]],
 
   // projects: プロジェクトごとに設定を保存できる。defaultはconfigの一番上の階層の設定.
   projects: [

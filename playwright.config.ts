@@ -1,4 +1,5 @@
-import test, { PlaywrightTestConfig } from '@playwright/test'
+import { PlaywrightTestConfig } from '@playwright/test'
+
 
 /**
  * テスト実行時に、このファイルをconfigとして読み取ることをコマンドで指定すると、
@@ -34,7 +35,7 @@ const config: PlaywrightTestConfig = {
   // reporter: [['json', { outputFile: 'test-results.json' }]],
   // reporter: [['junit', {outputFolder: 'test-report'}]],
 
-  reporter: [['html', { outputFolder: './test-report', open: 'never' }]],
+  reporter: [['html', { outputFolder: './test-report/', open: 'never' }]],
 
   // projects: プロジェクトごとに設定を保存できる。defaultはconfigの一番上の階層の設定.
   projects: [
