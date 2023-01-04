@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import { LoginPage } from '../page-objects/LoginPage'
-import { HomePage } from '../page-objects/HomePage'
+import { LoginPage } from '@page-objects/LoginPage'
+import { HomePage } from '@page-objects/HomePage'
 
 test.describe('Login / Logout Flow', () => {
   let loginPage: LoginPage

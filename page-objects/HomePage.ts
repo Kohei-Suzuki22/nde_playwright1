@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test'
-import { AbstractPage } from './abstractPage'
+import { AbstractPage } from '@page-objects/abstractPage'
 
 export class HomePage extends AbstractPage{
   readonly signInButton: Locator

@@ -1,6 +1,6 @@
 import { test } from '@playwright/test'
-import { HomePage } from '../page-objects/HomePage'
-import { LoginPage } from '../page-objects/LoginPage'
+import { HomePage } from '@page-objects/HomePage'
+import { LoginPage } from '@page-objects/LoginPage'
 
 test.describe('ログインページvisual Tests', () => {
   let homePage: HomePage

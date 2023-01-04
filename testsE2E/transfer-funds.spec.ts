@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import { HomePage } from '../page-objects/HomePage'
-import { LoginPage } from '../page-objects/LoginPage'
+import { HomePage } from '@page-objects/HomePage'
+import { LoginPage } from '@page-objects/LoginPage'
 
 test.describe('送金と支払い', () => {
   let homePage: HomePage

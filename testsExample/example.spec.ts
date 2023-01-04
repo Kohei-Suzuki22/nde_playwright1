@@ -1,9 +1,15 @@
 import { test, expect } from '@playwright/test'
-import { loadHomepage, assertTitle } from '../common_modules/helpers'
+import { assert } from 'console'
+import { loadHomepage, assertTitle } from '@common_modules/helpers'
+import { getRandomNumber, getRandomString } from '@utils/data-helpers'
 
 test('ベーシック', async ({ page }) => {
   await page.goto('https://www.example.com')
   const pageTitle = await page.locator('h1')
+  const randomNum = await getRandomNumber()
+  const randomString = await getRandomString()
+  await assert(randomNum > 0)
+  await assert(randomString.length > 0)
   await expect(pageTitle).toContainText('Example Domain')
 })
 
@@ -18,7 +24,7 @@ test('クリック', async ({ page }) => {
 })
 
 // .onlyを使うと、これだけを実行することになる。(※　このファイルの中でonlyは有効なため、他のファイルも一緒に実行するときは、他のファイルはonlyの効果を受けない。)
-test.only('入力', async ({ page }) => {
+test('入力', async ({ page }) => {
   await page.goto('http://zero.webappsecurity.com/index.html')
   await page.click('#signin_button')
 
@@ -33,7 +39,7 @@ test.only('入力', async ({ page }) => {
 })
 
 // .onlyを複数つけると、onlyをつけたものだけ実行するようになる。
-test.only('アサーション', async ({ page }) => {
+test('アサーション', async ({ page }) => {
   await page.goto('https://example.com')
   await expect(page).toHaveURL('https://example.com')
   await expect(page).toHaveTitle('Example Domain')
@@ -53,7 +59,7 @@ test.only('アサーション', async ({ page }) => {
 // parallelは、configで定義する他に、describeに付けることもできる。
 test.describe.parallel('describeを使ってテストをまとめることができる', () => {
   // .onlyを使うと、これだけを実行することになる。
-  test.only('入力', async ({ page }) => {
+  test('入力', async ({ page }) => {
     await page.goto('http://zero.webappsecurity.com/index.html')
     await page.click('#signin_button')
 
@@ -68,13 +74,12 @@ test.describe.parallel('describeを使ってテストをまとめることがで
   })
 
   // .onlyを複数つけると、onlyをつけたものだけ実行するようになる。
-  test.only('アサーション', async ({ page }) => {
+  test('アサーション', async ({ page }) => {
     await page.goto('https://example.com')
 
     // page.pause(): このタイミングで、playwright inspectorが開かれる。debugで便利。
     await page.pause()
-    
-    
+
     await expect(page).toHaveURL('https://example.com')
     await expect(page).toHaveTitle('Example Domain')
 
@@ -91,9 +96,9 @@ test.describe.parallel('describeを使ってテストをまとめることがで
   })
 })
 
-test.only('共通モジュールとして別ファイルを読み込む', async ({ page }) => {
+test('共通モジュールとして別ファイルを読み込む', async ({ page }) => {
   await loadHomepage(page)
   // vscodeのデバッグ実行を使えばdebuggerで止められる。
-  debugger;
+  debugger
   await assertTitle(page)
 })

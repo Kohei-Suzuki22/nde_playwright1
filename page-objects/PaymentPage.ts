@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
-import { AbstractPage } from './abstractPage'
+import { AbstractPage } from '@page-objects/abstractPage'
 
 export class PaymentPage extends AbstractPage {
   readonly payeeSelectbox: Locator

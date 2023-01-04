@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@common_modules/*": ["common_modules/*"],
+      "@utils/*": ["utils/*"],
+      "@page-objects/*": ["page-objects/*"]
+    }
+  },
+}

@@ -1,8 +1,8 @@
 import { test } from '@playwright/test'
-import { Navbar } from '../page-objects/components/Navbar'
-import { HomePage } from '../page-objects/HomePage'
-import { LoginPage } from '../page-objects/LoginPage'
-import { PaymentPage } from '../page-objects/PaymentPage'
+import { Navbar } from '@page-objects/components/Navbar'
+import { HomePage } from '@page-objects/HomePage'
+import { LoginPage } from '@page-objects/LoginPage'
+import { PaymentPage } from '@page-objects/PaymentPage'
 
 test.describe('新規支払い', () => {
   let homePage: HomePage

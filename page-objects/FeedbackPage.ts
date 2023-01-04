@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
-import { AbstractPage } from './abstractPage'
+import { AbstractPage } from '@page-objects/abstractPage'
 
 export class FeedbackPage extends AbstractPage {
   readonly nameInput: Locator
