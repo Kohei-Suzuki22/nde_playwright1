@@ -28,7 +28,7 @@ const config: PlaywrightTestConfig = {
     // 操作に対するタイムアウト。
     actionTimeout: 30000,
     ignoreHTTPSErrors: true,
-    video: 'retain-on-failure',
+    video: 'on',
     screenshot: 'off',
   },
   // reporterはuseの外に設定するので注意。
